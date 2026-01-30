@@ -23,7 +23,6 @@ const features = [
   "Soluciones escalables y flexibles",
   "Integración con tus herramientas actuales",
   "Formación y capacitación incluida",
-  "ROI garantizado en 6 meses",
 ];
 
 const Benefits = () => {
