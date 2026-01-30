@@ -1,3 +1,5 @@
+"use client";
+
 import { Bot, Brain, Cog, LineChart, Globe, Smartphone } from "lucide-react";
 
 const services = [

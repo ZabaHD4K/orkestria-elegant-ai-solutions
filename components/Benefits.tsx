@@ -1,3 +1,5 @@
+"use client";
+
 import { Check, TrendingUp, Clock, Users } from "lucide-react";
 
 const benefits = [

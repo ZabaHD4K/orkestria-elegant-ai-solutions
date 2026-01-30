@@ -1,3 +1,5 @@
+"use client";
+
 import { Bot, Linkedin, Instagram, MessageCircle } from "lucide-react";
 
 const Footer = () => {
