@@ -4,6 +4,8 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import Header from "@/components/Header";
+import PageTransition from "@/components/PageTransition";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -31,7 +33,10 @@ export default function RootLayout({
         <TooltipProvider>
           <Toaster />
           <Sonner />
-          {children}
+          <Header />
+          <PageTransition>
+            {children}
+          </PageTransition>
         </TooltipProvider>
       </body>
     </html>
