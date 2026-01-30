@@ -3,8 +3,8 @@ import { Check, TrendingUp, Clock, Users } from "lucide-react";
 const benefits = [
   {
     icon: TrendingUp,
-    title: "Aumenta tu Productividad",
-    description: "Nuestros clientes reportan un aumento promedio del 40% en productividad tras implementar nuestras soluciones.",
+    title: "Reduce tus Costes",
+    description: "Nuestros clientes ahorran hasta un 60% en costes operativos gracias a la automatización inteligente.",
   },
   {
     icon: Clock,
