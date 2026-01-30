@@ -20,7 +20,6 @@ const benefits = [
 
 const features = [
   "Implementación rápida y sin fricciones",
-  "Soporte técnico especializado 24/7",
   "Soluciones escalables y flexibles",
   "Integración con tus herramientas actuales",
   "Formación y capacitación incluida",
