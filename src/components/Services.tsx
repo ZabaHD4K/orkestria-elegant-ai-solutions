@@ -1,4 +1,4 @@
-import { Bot, Brain, Cog, LineChart, Shield, Zap } from "lucide-react";
+import { Bot, Brain, Cog, LineChart, Globe, Smartphone } from "lucide-react";
 
 const services = [
   {
@@ -22,14 +22,14 @@ const services = [
     description: "Transformamos tus datos en insights accionables con dashboards y reportes inteligentes.",
   },
   {
-    icon: Shield,
-    title: "Ciberseguridad",
-    description: "Protegemos tu infraestructura con soluciones de seguridad avanzadas y auditorías.",
+    icon: Globe,
+    title: "Desarrollo Web",
+    description: "Creamos páginas web modernas, rápidas y optimizadas que impulsan tu presencia digital.",
   },
   {
-    icon: Zap,
-    title: "Integración de Sistemas",
-    description: "Conectamos todas tus herramientas y plataformas para un flujo de trabajo unificado.",
+    icon: Smartphone,
+    title: "Aplicaciones",
+    description: "Desarrollamos aplicaciones móviles y de escritorio a medida para tu negocio.",
   },
 ];
 
