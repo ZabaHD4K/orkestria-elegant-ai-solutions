@@ -2,95 +2,111 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Neumorphism Base - Soft cream/gray background */
+    --background: 220 20% 95%;
+    --foreground: 220 40% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Navy Blue Primary */
+    --primary: 215 50% 23%;
+    --primary-foreground: 220 20% 98%;
+    
+    /* Lighter navy for accents */
+    --primary-light: 215 45% 35%;
+    --primary-dark: 215 55% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Card surfaces for neumorphism */
+    --card: 220 20% 95%;
+    --card-foreground: 220 40% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --popover: 220 20% 95%;
+    --popover-foreground: 220 40% 15%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Soft blue gray */
+    --secondary: 220 15% 90%;
+    --secondary-foreground: 220 40% 20%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted tones */
+    --muted: 220 15% 88%;
+    --muted-foreground: 220 20% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Brighter navy */
+    --accent: 215 60% 45%;
+    --accent-foreground: 220 20% 98%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 20% 88%;
+    --input: 220 20% 88%;
+    --ring: 215 50% 23%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Neumorphism shadows */
+    --shadow-light: 220 20% 100%;
+    --shadow-dark: 220 25% 80%;
+    
+    /* Neumorphic shadow values */
+    --neu-shadow: 8px 8px 16px hsl(var(--shadow-dark)), -8px -8px 16px hsl(var(--shadow-light));
+    --neu-shadow-sm: 4px 4px 8px hsl(var(--shadow-dark)), -4px -4px 8px hsl(var(--shadow-light));
+    --neu-shadow-inset: inset 4px 4px 8px hsl(var(--shadow-dark)), inset -4px -4px 8px hsl(var(--shadow-light));
+    --neu-shadow-pressed: inset 2px 2px 4px hsl(var(--shadow-dark)), inset -2px -2px 4px hsl(var(--shadow-light));
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar */
+    --sidebar-background: 220 20% 95%;
+    --sidebar-foreground: 220 40% 15%;
+    --sidebar-primary: 215 50% 23%;
+    --sidebar-primary-foreground: 220 20% 98%;
+    --sidebar-accent: 220 15% 90%;
+    --sidebar-accent-foreground: 220 40% 20%;
+    --sidebar-border: 220 20% 88%;
+    --sidebar-ring: 215 50% 23%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 220 40% 8%;
+    --foreground: 220 20% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --primary: 215 50% 55%;
+    --primary-foreground: 220 40% 8%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --card: 220 40% 10%;
+    --card-foreground: 220 20% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --popover: 220 40% 10%;
+    --popover-foreground: 220 20% 95%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 30% 15%;
+    --secondary-foreground: 220 20% 90%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 30% 18%;
+    --muted-foreground: 220 15% 60%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 215 60% 50%;
+    --accent-foreground: 220 40% 8%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 62% 30%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 220 30% 18%;
+    --input: 220 30% 18%;
+    --ring: 215 50% 55%;
+
+    --shadow-light: 220 40% 15%;
+    --shadow-dark: 220 50% 5%;
+
+    --sidebar-background: 220 40% 8%;
+    --sidebar-foreground: 220 20% 95%;
+    --sidebar-primary: 215 50% 55%;
+    --sidebar-primary-foreground: 220 40% 8%;
+    --sidebar-accent: 220 30% 15%;
+    --sidebar-accent-foreground: 220 20% 90%;
+    --sidebar-border: 220 30% 18%;
+    --sidebar-ring: 215 50% 55%;
   }
 }
 
@@ -100,6 +116,87 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer components {
+  /* Neumorphic card styles */
+  .neu-card {
+    @apply bg-background rounded-2xl;
+    box-shadow: var(--neu-shadow);
+  }
+
+  .neu-card-sm {
+    @apply bg-background rounded-xl;
+    box-shadow: var(--neu-shadow-sm);
+  }
+
+  .neu-pressed {
+    @apply bg-background rounded-xl;
+    box-shadow: var(--neu-shadow-inset);
+  }
+
+  .neu-button {
+    @apply bg-background rounded-xl px-6 py-3 font-medium transition-all duration-300;
+    box-shadow: var(--neu-shadow-sm);
+  }
+
+  .neu-button:hover {
+    box-shadow: var(--neu-shadow);
+    transform: translateY(-2px);
+  }
+
+  .neu-button:active {
+    box-shadow: var(--neu-shadow-pressed);
+    transform: translateY(0);
+  }
+
+  /* Navy gradient accent */
+  .gradient-navy {
+    background: linear-gradient(135deg, hsl(215 50% 23%) 0%, hsl(215 45% 35%) 100%);
+  }
+
+  .gradient-navy-light {
+    background: linear-gradient(135deg, hsl(215 45% 35%) 0%, hsl(215 60% 45%) 100%);
+  }
+
+  /* Text gradient */
+  .text-gradient-navy {
+    background: linear-gradient(135deg, hsl(215 50% 23%) 0%, hsl(215 60% 45%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Floating animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Pulse glow */
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(215 60% 45% / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(215 60% 45% / 0.5); }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
 }
