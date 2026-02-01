@@ -10,6 +10,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
+  const [showIndicator, setShowIndicator] = useState(false);
   const pathname = usePathname();
   const serviciosRef = useRef<HTMLAnchorElement>(null);
   const beneficiosRef = useRef<HTMLAnchorElement>(null);
@@ -49,13 +50,24 @@ const Header = () => {
       if (ref?.current) {
         const { offsetLeft, offsetWidth } = ref.current;
         setIndicatorStyle({ left: offsetLeft, width: offsetWidth });
+        
+        // Activar animación cuando aparece por primera vez con delay
+        if (!showIndicator && activeSection) {
+          // Pequeño delay para asegurar que el navegador registra el estado inicial
+          requestAnimationFrame(() => {
+            setTimeout(() => setShowIndicator(true), 50);
+          });
+        }
+      } else if (showIndicator) {
+        // Resetear si no hay sección activa
+        setShowIndicator(false);
       }
     };
 
     updateIndicator();
     window.addEventListener("resize", updateIndicator);
     return () => window.removeEventListener("resize", updateIndicator);
-  }, [activeSection]);
+  }, [activeSection, showIndicator]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg">
@@ -81,7 +93,13 @@ const Header = () => {
                   style={{
                     width: `${indicatorStyle.width}px`,
                     left: `${indicatorStyle.left}px`,
-                    transition: 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)'
+                    transform: showIndicator ? 'scale(1)' : 'scale(0)',
+                    opacity: showIndicator ? 1 : 0,
+                    transition: showIndicator 
+                      ? 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)' 
+                      : 'none',
+                    transformOrigin: 'center center',
+                    willChange: 'transform, opacity'
                   }}
                 />
               )}
