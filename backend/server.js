@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const OpenAI = require('openai');
+const fs = require('fs');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -9,6 +11,19 @@ const PORT = process.env.PORT || 3001;
 const openai = new OpenAI({
   apiKey: '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'
 });
+
+// Cargar contexto desde archivo `context.txt` (si existe)
+let CONTEXT = 'Eres un asistente experto de OrkestrIA.';
+try {
+  const ctxPath = path.join(__dirname, 'context.txt');
+  if (fs.existsSync(ctxPath)) {
+    CONTEXT = fs.readFileSync(ctxPath, 'utf8').trim();
+  }
+} catch (e) {
+  console.error('No se pudo leer context.txt:', e.message);
+}
+
+console.log('Contexto cargado:', CONTEXT);
 
 // Modelo más económico de GPT-4
 const MODEL = 'gpt-4o-mini';
@@ -57,7 +72,7 @@ app.post('/api/asistente', async (req, res) => {
       messages: [
         {
           role: 'system',
-          content: 'Eres un asistente experto de OrkestrIA, una empresa que ofrece soluciones de IA elegantes y personalizadas.'
+          content: CONTEXT
         },
         {
           role: 'user',
