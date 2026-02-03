@@ -13,7 +13,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.21.2",
-    "openai": "^4.75.1"
+    "openai": "^4.75.1",
+    "dotenv": "^16.0.3"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"

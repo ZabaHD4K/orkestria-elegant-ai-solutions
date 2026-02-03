@@ -3,14 +3,20 @@ const cors = require('cors');
 const OpenAI = require('openai');
 const fs = require('fs');
 const path = require('path');
+// Cargar variables de entorno desde .env
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Configurar OpenAI
+// Configurar OpenAI usando la API key desde entorno
 const openai = new OpenAI({
-  apiKey: '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'
+  apiKey: process.env.OPENAI_API_KEY
 });
+
+if (!process.env.OPENAI_API_KEY) {
+  console.warn('AVISO: OPENAI_API_KEY no está definida. Rellena backend/.env o exporta la variable.');
+}
 
 // Cargar contexto desde archivo `context.txt` (si existe)
 let CONTEXT = 'Eres un asistente experto de OrkestrIA.';
